@@ -12,5 +12,5 @@ python3 trainECAPAModel.py \
     --eval_list data/commonvoice/veri_test.txt \
     --eval_path $commonvoice_path/clips \
     --musan_path $musan_path \
-    --rir_parth $rir_path \
+    --rir_path $rir_path \
     --save_path $save_path

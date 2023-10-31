@@ -16,12 +16,14 @@ import sys
 if __name__ == "__main__":
     cv_database = sys.argv[1]
     out_dir = sys.argv[2]
+    os.makedirs(out_dir, exist_ok=True)
     train_tsv = cv_database + "/train.tsv"
 
     # create training list
     with open(train_tsv, "r") as t, open(out_dir + "/train_list.txt", "w") as o:
         for line in t:
             line_sp = line.split()
-            mp3_path = line_sp[2]
+            mp3_path = line_sp[1]
+            full_mp3_path = cv_database + "/clips/{}".format(mp3_path)
             utt_name = mp3_path.split("/")[-1].split(".")[0]
-            o.write("{} {}\n".format(utt_name, mp3_path))
+            o.write("{} {}\n".format(utt_name, full_mp3_path))
