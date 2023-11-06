@@ -7,10 +7,10 @@ rir_path=./RIRS_NOISES/simulated_rirs
 save_path=exp/exp_commonvoice1
 
 python3 trainECAPAModel.py \
-    --train_list data/commonvoice/train_list.txt \
-    --train_path $commonvoice_path/clips \
-    --eval_list data/commonvoice/veri_test.txt \
-    --eval_path $commonvoice_path/clips \
+    --train_list data/commonvoice_wavs/train_list.txt \
+    --train_path ./ \
+    --eval_list data/commonvoice_wavs/veri_test.txt \
+    --eval_path ./ \
     --musan_path $musan_path \
     --rir_path $rir_path \
     --save_path $save_path
