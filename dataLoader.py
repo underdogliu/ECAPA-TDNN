@@ -31,8 +31,8 @@ class train_loader(object):
         dictkeys.sort()
         dictkeys = {key: ii for ii, key in enumerate(dictkeys)}
         for index, line in enumerate(lines):
-            speaker_label = dictkeys[line.split()[0]]
-            file_name = os.path.join(train_path, line.split()[1])
+            speaker_label = dictkeys[line.split()[1]]
+            file_name = os.path.join(train_path, line.split()[2])
             self.data_label.append(speaker_label)
             self.data_list.append(file_name)
 
