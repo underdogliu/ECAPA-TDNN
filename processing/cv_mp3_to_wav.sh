@@ -3,8 +3,8 @@
 set -e
 . ./path.sh
 
-srcdir=data/commonvoice
-tardir=data/commonvoice_wavs
+srcdir=data/commonvoice_new
+tardir=data/commonvoice_new_wavs
 
 cmd=run.pl
 nj=40

@@ -16,7 +16,7 @@ parser.add_argument(
     help="Duration of the input segments, eg: 200 for 2 second",
 )
 parser.add_argument(
-    "--max_epoch", type=int, default=80, help="Maximum number of epochs"
+    "--max_epoch", type=int, default=10, help="Maximum number of epochs"
 )
 parser.add_argument("--batch_size", type=int, default=400, help="Batch size")
 parser.add_argument("--n_cpu", type=int, default=4, help="Number of loader threads")

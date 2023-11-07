@@ -27,7 +27,7 @@ class train_loader(object):
         self.data_list = []
         self.data_label = []
         lines = open(train_list).read().splitlines()
-        dictkeys = list(set([x.split()[0] for x in lines]))
+        dictkeys = list(set([x.split()[1] for x in lines]))
         dictkeys.sort()
         dictkeys = {key: ii for ii, key in enumerate(dictkeys)}
         for index, line in enumerate(lines):
@@ -38,11 +38,16 @@ class train_loader(object):
 
     def __getitem__(self, index):
         # Read the utterance and randomly select the segment
-        audio, sr = soundfile.read(self.data_list[index])
+        # If we encounter false audio, we use normal distribution
+        #   as the replacement for now.
         length = self.num_frames * 160 + 240
-        if audio.shape[0] <= length:
-            shortage = length - audio.shape[0]
-            audio = numpy.pad(audio, (0, shortage), "wrap")
+        try:
+            audio, sr = soundfile.read(self.data_list[index])
+            if audio.shape[0] <= length:
+                shortage = length - audio.shape[0]
+                audio = numpy.pad(audio, (0, shortage), "wrap")
+        except:
+            audio = numpy.random.normal(0, 1, length)
         start_frame = numpy.int64(random.random() * (audio.shape[0] - length))
         audio = audio[start_frame : start_frame + length]
         audio = numpy.stack([audio], axis=0)
