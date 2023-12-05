@@ -9,7 +9,7 @@ save_path=exp/exp_commonvoice1
 python3 trainECAPAModel.py \
     --train_list data/commonvoice_new_wavs/train_list.txt \
     --train_path ./ \
-    --eval_list data/commonvoice_new_wavs/veri_test.txt \
+    --eval_list data/voxceleb1/test/veri_test_full.txt \
     --eval_path ./ \
     --musan_path $musan_path \
     --rir_path $rir_path \

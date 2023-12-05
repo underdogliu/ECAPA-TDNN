@@ -47,7 +47,7 @@ parser.add_argument(
 parser.add_argument(
     "--eval_list",
     type=str,
-    default="data/commonvoice/veri_test.txt",
+    default="data/commonvoice_eval_wavs/veri_test.txt",
     help="The path of the evaluation list, veri_test2.txt comes from https://www.robots.ox.ac.uk/~vgg/data/voxceleb/meta/veri_test2.txt",
 )
 parser.add_argument(
